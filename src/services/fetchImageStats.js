@@ -1,8 +1,8 @@
 const KEY = `?client_id=GDrGj0FEYv_yed2ij5BMCcLa0YeWuIAwidx-4fOCV0E`;
 const URL = `https://api.unsplash.com/photos/`;
 
-const fetchImages = async page => {
-    const response = await fetch(`${URL}${KEY}&per_page=3&page=${page}`);
+const fetchImageStats = async id => {
+    const response = await fetch(`${URL}/${id}/statistics${KEY}`);
     const data = await response.json();
 
     if (response.status >= 400) {
@@ -12,4 +12,4 @@ const fetchImages = async page => {
     return data;
 };
 
-export default fetchImages;
+export default fetchImageStats;
